@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Customers")
-
+//we write table line if we want to name the table differently from the model name
 public class Customers {
 
     @Id

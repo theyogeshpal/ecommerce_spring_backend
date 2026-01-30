@@ -4,6 +4,7 @@ import com.example.ecommerce_backend.models.Products;
 import com.example.ecommerce_backend.repositories.ProductRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ import java.util.Map;
 @RequestMapping("/api")
 public class ProductController {
 
-    private static final Log log = LogFactory.getLog(ProductController.class);
+
     ProductRepository pr;
     public ProductController(ProductRepository pr)
     {
@@ -40,6 +41,7 @@ public class ProductController {
             @RequestParam("image2") MultipartFile image2
      ) throws IOException
     {
+
 
         //upload first file
         String folder = "upload/";
@@ -82,6 +84,7 @@ public class ProductController {
     public ResponseEntity<?> DeleteProduct(@PathVariable Long id)
     {
         pr.deleteById(id);
+
         return ResponseEntity.ok(Map.of(
            "status","success",
            "message","Product Deleted Successfully"
